@@ -21,9 +21,9 @@ def ping_sweep(network):
     for i in range(1, 255):  # Intervalul 1-254
         ip = f"{base_ip}.{i}"
         try:
-            # Rulează comanda ping pentru fiecare IP
+            # Ruleaza comanda ping pentru fiecare IP
             result = subprocess.run(['ping', '-c', '1', '-W', '1', ip], stdout=subprocess.DEVNULL)
-            if result.returncode == 0:  # Dacă dispozitivul răspunde
+            if result.returncode == 0:  # Daca dispozitivul raspunde
                 active_ips.append(ip)
                 print(f"Active IP found: {ip}")
         except Exception as e:
@@ -34,7 +34,7 @@ def ping_sweep(network):
 
 if __name__ == "__main__":
     # Definește rețeaua VLAN de scanat
-    vlan_network = "10.11.14.0/24"  # Înlocuiește cu rețeaua corectă
+    vlan_network = "10.11.14.0/24" 
 
     # Scanează rețeaua pentru dispozitive active
     active_ips = ping_sweep(vlan_network)
